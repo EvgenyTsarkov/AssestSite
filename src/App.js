@@ -19,25 +19,30 @@ export default function App() {
             <img src={Logo} alt="Logo" />
           </li>
           <li>
-            <a href="/">Home</a>
+            <a href="/">Домой</a>
           </li>
           <li>
-            <a href="/">Download</a>
+            <a href="/">Скачать</a>
           </li>
           <li>
             <a href="/">App</a>
           </li>
           <li>
-            <a href="/">Login</a>
+            <a href="/">Вход</a>
           </li>
           <li>
-            <button>Get Started</button>
+            <button>Зарегистироваться</button>
           </li>
         </Menu>
-        <h1>Collaborate with people</h1>
-        <p>Bring your team.........</p>
+        <h1>Объединяйся с людьми</h1>
+        <p>
+          Присоединяйся к Нашей команде или создай свою с помощью нашего
+          Приложения, которое позволит Тебе общаться с помощью Чата, Голоса, а
+          так же обмениваться неограниченным количеством файлов. Участвуй в
+          Соревнованиях и делись своими Достижениями!{" "}
+        </p>
         <button>
-          <img src={IconLaptop} alt="Download" /> Download for Mac
+          <img src={IconLaptop} alt="Download" /> Скачать на iMac
         </button>
       </Content>
       <Social>
@@ -50,44 +55,47 @@ export default function App() {
 }
 
 const Wrapper = styled.div`
-font-family: 'Spline Sans' , sans-serif;
-font-size: 16px;
-color: white;
-position: relative;
-width: 100%;
-height: 100%;
-overflow-x: hidden;
+  font-family: "Spline Sans", sans-serif;
+  font-size: 16px;
+  color: white;
+  margin: 0 auto;
+  position: relative;
+  height: 100%;
+  overflow-x: hidden;
 
+  .spline {
+    position: absolute;
+    margin: 0;
+    top: 0;
+    right: 0;
+    width: 1200px;
+    height: 1000px;
 
-.spline {
-  position: absolute;
-  margin: 0;
-  top: 0;
-  right: 0;
-
-  @media (max-width: 1024px) {
-    transform: scale(0.8) translateX(200px);
-    transform-origin: top;
+    @media (max-width: 1024px) {
+      transform: scale(0.8) translateX(200px);
+      transform-origin: top;
+    }
+    @media (max-width: 800px) {
+      transform: scale(0.7) translateX(600px);
+    }
+    @media (max-width: 600px) {
+      transform: scale(0.5) translateX(-100px);
+      right: auto;
+      left: 50%;
+      margin-left: -600px;
+    }
+    @media (max-width: 375px) {
+      transform: scale(0.45) translateX(-50px);
+    }
   }
-  @media (max-width: 800px) {
-    transform: scale(0.7) translateX(600px);
-  }
-  @media (max-width: 600px) {
-    transform: scale(0.5) translateX(-100px);
-    right: auto;
-    left: 50%;
-    margin-left: -600px;
-  }
-  @media (max-width: 375px) {
-    transform: scale(0.45) translateX(-50px):
-  }
-}
 `;
 
 const Content = styled.div`
   position: absolute;
   top: 30px;
   width: 100%;
+  padding-bottom: 100px;
+  pointer-events: none;
 
   display: flex;
   flex-direction: column;
@@ -103,6 +111,8 @@ const Content = styled.div`
     font-size: 70px;
     margin: 0;
     max-width: 500px;
+    pointer-events: auto;
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 
     @media (max-width: 1024px) {
       font-size: 60px;
@@ -121,6 +131,8 @@ const Content = styled.div`
     font-weight: normal;
     line-height: 150%;
     max-width: 380px;
+    pointer-events: auto;
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   }
 
   button {
@@ -133,6 +145,11 @@ const Content = styled.div`
     color: white;
     max-width: 280px;
     backdrop-filter: blur(20px);
+    font-weight: 600;
+    box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2);
+    transition: 1s;
+    cursor: pointer;
+    pointer-events: auto;
 
     display: flex;
     gap: 12px;
@@ -164,6 +181,7 @@ const Menu = styled.ul`
   align-items: center;
   margin: 0 30px 0 100px;
   padding: 0px;
+  pointer-events: auto;
 
   @media (max-width: 1024px) {
     margin: 0 30px;
@@ -186,6 +204,12 @@ const Menu = styled.ul`
       }
     }
   }
+  button {
+    margin: 0;
+    width: auto;
+    background: rgba(31, 66, 250, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+  }
 
   @media (max-width: 800px) {
     justify-content: space-between;
@@ -207,6 +231,10 @@ const Social = styled.div`
   gap: 30px;
   align-items: center;
 
+  @media (max-width: 1024px) {
+    display: none;
+  }
+
   div {
     width: 1px;
     height: 500px;
@@ -217,9 +245,5 @@ const Social = styled.div`
       #1306dd 65.86%,
       #aa0eb2 100%
     );
-  }
-
-  @media (max-width: 1024px) {
-    display: none;
   }
 `;
